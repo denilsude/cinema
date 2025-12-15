@@ -1,0 +1,15 @@
+{
+  "filmes": [],
+  "salas": [],
+  "sessoes": [],
+  "lanches": [
+    {
+      "id": "0c83",
+      "nome": "pipoca ",
+      "descricao": "amanteigada",
+      "valorUnitario": 17.5,
+      "qtUnidade": 3
+    }
+  ],
+  "pedidos": []
+}
