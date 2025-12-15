@@ -1,6 +1,24 @@
 {
-  "filmes": [],
-  "salas": [],
+  "filmes": [
+    {
+      "id": "5d70",
+      "titulo": "avatar",
+      "sinopse": "cara azul",
+      "classificacao": "14",
+      "duracao": 240,
+      "genero": "Ação",
+      "elenco": "top",
+      "dataInicialExibicao": "2025-12-18",
+      "dataFinalExibicao": "2026-01-10"
+    }
+  ],
+  "salas": [
+    {
+      "id": "f1fd",
+      "numero": 2,
+      "capacidade": 60
+    }
+  ],
   "sessoes": [],
   "lanches": [
     {
