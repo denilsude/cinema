@@ -1,73 +1,93 @@
-# React + TypeScript + Vite
+# 🎬 CineManager - Sistema de Gestão de Cinema
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React Version](https://img.shields.io/badge/react-19.2-blue?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/typescript-5.9-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-7.2-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
 
-Currently, two official plugins are available:
+> **Solução completa para administração de complexos de cinema.** Gerenciamento de filmes, sessões, salas e bombonière com interface ágil e tipagem estática robusta.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Sobre o Projeto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+O **CineManager** é uma aplicação Single Page Application (SPA) desenvolvida para modernizar o fluxo operacional de cinemas. O projeto foca na integridade dos dados e na experiência do usuário administrativo, permitindo o cadastro rápido de recursos e a realização de vendas de ingressos em tempo real.
 
-## Expanding the ESLint configuration
+O diferencial deste projeto reside na sua arquitetura moderna utilizando **React 19** e **TypeScript**, garantindo um código escalável, seguro e de fácil manutenção.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Stack Tecnológico & Arquitetura
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Este projeto demonstra domínio sobre o ecossistema moderno de desenvolvimento web:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+* **Core:**
+    * **React 19:** Utilização das últimas features da biblioteca para interfaces reativas.
+    * **TypeScript:** Tipagem estática rigorosa para prevenir erros em tempo de desenvolvimento e melhorar o intellisense.
+    * **Vite:** Build tool de próxima geração para desenvolvimento ultra-rápido e Hot Module Replacement (HMR).
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+* **Roteamento & Navegação:**
+    * **React Router DOM v7:** Gerenciamento complexo de rotas para navegação fluida entre módulos (Filmes, Salas, Vendas).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+* **Comunicação & Dados:**
+    * **Service Pattern:** Camada de serviço abstrata (`APIService`) encapsulando o **Axios**. Isso centraliza as requisições HTTP (GET, POST, PUT, DELETE) e desacopla a lógica de UI da lógica de dados.
+    * **JSON Server:** Simulação completa de uma API RESTful para prototipagem rápida e desenvolvimento do frontend independente do backend.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+* **Interface (UI):**
+    * **Bootstrap 5:** Design responsivo e componentes consistentes para painéis administrativos.
+    * **Bootstrap Icons:** Iconografia visual para ações de CRUD.
+
+---
+
+## ✨ Funcionalidades
+
+O sistema é dividido em módulos operacionais claros:
+
+1.  **Gestão de Filmes:** Cadastro completo com metadados dos filmes em cartaz.
+2.  **Controle de Salas:** Administração das salas de exibição disponíveis.
+3.  **Sessões:** Agendamento de filmes em salas específicas, criando a grade horária.
+4.  **Bombonière (Lanches):** Catálogo de produtos e lanches disponíveis para venda.
+5.  **Ponto de Venda (POS):** Interface dedicada para venda de ingressos associada a uma sessão específica (`/venda/:sessaoId`).
+
+---
+
+## 🔧 Como Executar Localmente
+
+Siga os passos abaixo para levantar o ambiente de desenvolvimento:
+
+### Pré-requisitos
+* Node.js (versão 18 ou superior)
+* npm ou yarn
+
+### Instalação
+
+1.  **Clone o repositório**
+    ```bash
+    git clone [https://github.com/seu-usuario/cinema.git](https://github.com/seu-usuario/cinema.git)
+    cd cinema
+    ```
+
+2.  **Instale as dependências**
+    ```bash
+    npm install
+    ```
+
+3.  **Inicie o Servidor Mock (Backend)**
+    O projeto utiliza o `json-server` para simular o banco de dados. Mantenha este terminal aberto.
+    ```bash
+    npm run json-server
+    ```
+    *A API estará rodando em `http://localhost:3000`*
+
+4.  **Inicie a Aplicação (Frontend)**
+    Em um novo terminal, execute:
+    ```bash
+    npm run dev
+    ```
+    *O app estará acessível em `http://localhost:5173`*
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Denilson Oliveira da Silva**
